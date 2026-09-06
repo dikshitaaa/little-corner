@@ -68,4 +68,22 @@ Notes are stored using Supabase and displayed on the Memory Wall.
 
 Each authenticated user can create and view their own saved notes.
 
+## 💌 About
+
+This project was created as a fun experiment with web development
+and interactive design.
+
+The idea is to create a soft little digital space where users can
+write notes, explore memories, interact with animations, and enjoy
+a cute visual experience.
+
+Built with curiosity, creativity and a lot of ♡.
+
+## 🌐 Live Demo
+
+✨ **[Visit Little Notes ♡](https://little-cornerr.vercel.app/)**
+
+Explore the live website and experience the interactive notes, gift,
+memory wall, animations, and authentication features.
+
 
