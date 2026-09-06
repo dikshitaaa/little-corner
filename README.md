@@ -68,9 +68,4 @@ Notes are stored using Supabase and displayed on the Memory Wall.
 
 Each authenticated user can create and view their own saved notes.
 
-## 🚀 Getting Started
 
-### 1. Clone the repository
-
-```bash
-git clone YOUR_REPOSITORY_URL
