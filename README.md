@@ -32,9 +32,6 @@ The website supports both light and dark themes.
 
 ![Home Light Mode](screenshots/home.png)
 
-### Dark Mode
-
-> Add your dark-mode screenshot here if you have one.
 
 ## 📸 Screenshots
 
