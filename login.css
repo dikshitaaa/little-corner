@@ -1,0 +1,582 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100svh;
+
+  font-family: "Quicksand", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 210, 230, .8),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(215, 200, 255, .7),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8fc,
+      #f8f3ff
+    );
+
+  color: #5f5365;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.floating-particles {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+
+  bottom: -30px;
+
+  font-size: 15px;
+
+  opacity: 0;
+
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .7;
+  }
+
+  80% {
+    opacity: .45;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(180deg);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.auth-page {
+
+  min-height: 100svh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px 18px;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.auth-card {
+
+  width: min(100%, 430px);
+
+  padding: 38px 34px 32px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, .68);
+
+  border: 1px solid rgba(255, 255, 255, .85);
+
+  box-shadow:
+    0 25px 70px rgba(125, 91, 145, .14),
+    0 8px 25px rgba(255, 170, 205, .12);
+
+  backdrop-filter: blur(18px);
+
+  animation: cardAppear .8s ease both;
+}
+
+@keyframes cardAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.auth-envelope {
+
+  font-size: 4rem;
+
+  margin-bottom: 5px;
+
+  display: inline-block;
+
+  filter: drop-shadow(
+    0 8px 14px rgba(220, 135, 180, .25)
+  );
+
+  animation: envelopeFloat 3s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.title {
+
+  margin: 4px 0 8px;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 3.1rem;
+
+  font-weight: 600;
+
+  color: #765d7d;
+
+  line-height: 1;
+}
+
+.subtitle {
+
+  margin: 0 auto 28px;
+
+  max-width: 320px;
+
+  font-size: .95rem;
+
+  line-height: 1.6;
+
+  color: #9b8ca1;
+}
+
+.tiny-stars {
+
+  color: #c9a8d8;
+
+  font-size: 13px;
+
+  letter-spacing: 8px;
+
+  margin-bottom: 4px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#login-form {
+
+  text-align: left;
+}
+
+.field-group {
+
+  margin-bottom: 17px;
+}
+
+.field-group label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  padding-left: 5px;
+
+  font-size: .82rem;
+
+  font-weight: 600;
+
+  color: #817080;
+}
+
+.field-group input {
+
+  width: 100%;
+
+  border: 1px solid #eaddea;
+
+  outline: none;
+
+  border-radius: 15px;
+
+  padding: 14px 16px;
+
+  background: rgba(255, 255, 255, .72);
+
+  color: #625568;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.field-group input::placeholder {
+
+  color: #c2b5c4;
+}
+
+.field-group input:focus {
+
+  border-color: #d7acd2;
+
+  box-shadow:
+    0 0 0 4px rgba(220, 180, 220, .16);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-btn {
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 16px;
+
+  padding: 14px 20px;
+
+  margin-top: 5px;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: .95rem;
+
+  font-weight: 700;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d99abb,
+      #bfa5dc
+    );
+
+  box-shadow:
+    0 10px 25px rgba(185, 135, 190, .22);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.primary-btn:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 30px rgba(185, 135, 190, .3);
+}
+
+.primary-btn:active {
+
+  transform: scale(.98);
+}
+
+
+/* =========================
+   SWITCH
+========================= */
+
+.switch-text {
+
+  margin: 23px 0 0;
+
+  font-size: .84rem;
+
+  color: #a093a3;
+}
+
+.switch-text a {
+
+  color: #b47fae;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+  min-height: 20px;
+
+  margin: 13px 0 0;
+
+  font-size: .82rem;
+
+  color: #b47fae;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .auth-page {
+
+    padding: 20px 14px;
+  }
+
+  .auth-card {
+
+    padding: 32px 21px 27px;
+
+    border-radius: 25px;
+  }
+
+  .auth-envelope {
+
+    font-size: 3.5rem;
+  }
+
+  .title {
+
+    font-size: 2.7rem;
+  }
+
+  .subtitle {
+
+    font-size: .9rem;
+
+    margin-bottom: 24px;
+  }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .auth-card {
+
+    padding: 27px 17px 24px;
+  }
+
+  .auth-envelope {
+
+    font-size: 3rem;
+  }
+
+  .title {
+
+    font-size: 2.45rem;
+  }
+
+}
+/* =========================================================
+   MOBILE RESPONSIVE FIXES
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tablets and smaller */
+@media (max-width: 768px) {
+  .container, .screen, .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .polaroid {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  button, .btn {
+    padding: 14px 24px;
+    min-height: 48px;
+  }
+
+  input, textarea {
+    font-size: 16px !important;
+    padding: 14px;
+  }
+
+  .gift-wrap {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .prompt-chips {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .polaroid {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .polaroid .p-msg {
+    font-size: 0.9rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+  }
+
+  #particles {
+    display: none;
+  }
+
+  .gift-reveal {
+    padding: 20px;
+  }
+
+  .wall-empty .empty-emoji {
+    font-size: 3rem;
+  }
+
+  .prompt-chip {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+
+  .confirm-modal {
+    width: 90%;
+    padding: 24px 16px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  button, .btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  input, textarea {
+    font-size: 14px !important;
+    padding: 10px;
+  }
+}

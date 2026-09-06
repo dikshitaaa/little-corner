@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Dikshita's Soft Corner ♡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="particles" aria-hidden="true"></div>
+
+    <!-- Secret star easter egg (very subtle) -->
+    <button id="secret-star" class="secret-star" title="" aria-label="a tiny star"></button>
+
+    <!-- Tiny music toggle (appears after music starts) -->
+    <button id="music-toggle" class="music-toggle" hidden aria-label="mute or unmute music">🔊</button>
+
+    <!-- Day / night toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="switch day or night">☀️</button>
+
+    <!-- Progress dots -->
+    <div class="dots" aria-hidden="true">
+      <span class="dot active" data-step="0"></span>
+      <span class="dot" data-step="1"></span>
+      <span class="dot" data-step="2"></span>
+      <span class="dot" data-step="3"></span>
+    </div>
+
+    <main id="app">
+
+      <!-- 1. WELCOME -->
+      <section class="screen active" id="screen-welcome">
+        <div class="welcome-inner">
+          <div class="envelope-float">💌</div>
+          <h1 class="title-hand">welcome to dikshita's soft corner ♡</h1>
+          <p class="subtitle">a tiny little place filled with thoughts, memories &amp; kind words…</p>
+          <p class="big-question">leave a little note about dikshita ♡</p>
+          <button class="btn-primary" id="go-write">💌 write a little something</button>
+        </div>
+      </section>
+
+      <!-- 2. WRITE A NOTE -->
+      <section class="screen" id="screen-write">
+        <div class="paper-card write-card">
+          <h2 class="title-hand">leave something for dikshita ♡</h2>
+          <p class="subtitle">a thought, a memory, a first impression, or simply a few kind words…</p>
+
+          <div class="prompts">
+            <button type="button" class="prompt-chip" data-prompt="🌷 first impression">🌷 first impression</button>
+            <button type="button" class="prompt-chip" data-prompt="🧸 something you like">🧸 something you like</button>
+            <button type="button" class="prompt-chip" data-prompt="😂 a funny memory">😂 a funny memory</button>
+            <button type="button" class="prompt-chip" data-prompt="💭 something you've always wanted to say">💭 something you've always wanted to say</button>
+          </div>
+
+          <form id="note-form" autocomplete="off">
+            <input type="text" id="note-name" class="field" placeholder="your name (or stay anonymous)" maxlength="40" />
+            <textarea id="note-message" class="field" rows="5" placeholder="write something for dikshita… ♡" maxlength="500"></textarea>
+            <button type="submit" class="btn-primary" id="fold-letter">🎀 seal the little note</button>
+          </form>
+        </div>
+
+        <!-- Folding animation overlay -->
+        <div class="fold-stage" id="fold-stage" hidden>
+          <div class="fold-envelope" id="fold-envelope">
+            <div class="fold-paper" id="fold-paper">
+              <div class="fold-text" id="fold-text"></div>
+            </div>
+            <div class="fold-flap" id="fold-flap"></div>
+            <div class="fold-seal" id="fold-seal">♡</div>
+          </div>
+          <div class="fold-hearts" id="fold-hearts"></div>
+        </div>
+      </section>
+
+      <!-- 3. GIFT -->
+      <section class="screen" id="screen-gift">
+        <div class="gift-inner">
+          <h2 class="title-hand">and since you left something for dikshita… ♡</h2>
+          <p class="subtitle">a little something is waiting for you too.</p>
+
+          <div class="gift-wrap" id="gift-wrap">
+            <div class="gift-lid" id="gift-lid">
+              <div class="ribbon-h"></div>
+              <div class="ribbon-v"></div>
+              <div class="bow" id="gift-bow">🎀</div>
+            </div>
+            <div class="gift-box">
+              <div class="ribbon-v-body"></div>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="open-gift">🎁 open your little gift</button>
+
+          <div class="gift-reveal" id="gift-reveal" hidden>
+            <div class="gift-emoji" id="gift-emoji">🎁</div>
+            <h3 class="title-hand" id="gift-name">A little surprise</h3>
+            <p class="gift-message" id="gift-message"></p>
+            <div class="gift-actions">
+              <button class="btn-ghost" id="open-again">open another 🎁</button>
+              <button class="btn-ghost" id="go-wall">see the memory wall 💌</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MEMORY WALL -->
+      <section class="screen" id="screen-wall">
+        <div class="wall-inner">
+          <h2 class="title-hand">little words i've kept ♡</h2>
+          <p class="subtitle">some things are too sweet to let disappear…</p>
+          <div class="wall" id="wall"></div>
+          <button class="btn-ghost" id="write-again">write another note ✍️</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Secret easter egg overlay -->
+    <div class="secret-overlay" id="secret-overlay" hidden>
+      <div class="secret-card">
+        <div class="secret-spark">✨</div>
+        <h3 class="title-hand">pssst… you found a tiny secret 👀</h3>
+        <p>okay… this was just for the curious ones ♡</p>
+        <button class="btn-ghost" id="secret-close">okay ♡</button>
+      </div>
+    </div>
+
+    <!-- Delete confirmation modal -->
+    <div class="confirm-overlay" id="confirm-overlay" hidden>
+      <div class="confirm-card">
+        <div class="confirm-emoji">🥺</div>
+        <h3 class="title-hand">remove this little note?</h3>
+        <div class="confirm-actions">
+          <button class="btn-ghost" id="confirm-keep">keep it ♡</button>
+          <button class="btn-primary" id="confirm-remove">yes, remove</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
+
+

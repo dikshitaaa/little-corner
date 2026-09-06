@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Come On In ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- SIGNUP CSS -->
+  <link rel="stylesheet" href="signup.css">
+
+</head>
+
+<body>
+
+  <div class="floating-particles" id="particles"></div>
+
+  <main class="auth-page">
+
+    <div class="auth-card">
+
+      <div class="auth-envelope">🎀</div>
+
+      <div class="tiny-stars">✦ ˚ ✧</div>
+
+      <h1 class="title">come on in ♡</h1>
+
+      <p class="subtitle">
+        make yourself a tiny little space here…
+      </p>
+
+      <form id="signup-form">
+
+        <div class="field-group">
+
+          <label for="name">your name</label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="what should we call you?"
+            maxlength="40"
+            required
+          >
+
+        </div>
+
+        <div class="field-group">
+
+          <label for="email">your email</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            required
+          >
+
+        </div>
+
+        <div class="field-group">
+
+          <label for="password">create a password</label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="something only you know ♡"
+            minlength="6"
+            required
+          >
+
+        </div>
+
+        <button
+          type="submit"
+          class="primary-btn"
+        >
+          🎀 create my little corner
+        </button>
+
+      </form>
+
+      <p class="switch-text">
+
+        already have an account?
+
+        <a href="login.html">
+          sign in ♡
+        </a>
+
+      </p>
+
+      <p
+        id="signup-message"
+        class="message"
+      ></p>
+
+    </div>
+
+  </main>
+
+  <!-- SIGNUP JS -->
+  <script type="module" src="signup.js"></script>
+
+</body>
+</html>
